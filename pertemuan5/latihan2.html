@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      //Mmebuat variabel pesan
+      var pesan = "Dilarang Masuk Selain Petugas!";
+
+      function warning() {
+        alert(pesan);
+      }
+
+      function password() {
+        var pass = prompt("Masukkan Password: ");
+        if (pass != "petugas") {
+          //   alert("Gagal");
+          console.log("Gagal");
+        } else {
+          //   alert("Berhasil");
+          console.log("Berhasil");
+        }
+      }
+    </script>
+    <title>Notifikasi</title>
+  </head>
+  <body onload="warning();">
+    <p><b>Tempat Rahasia</b></p>
+    <p>Anda Belum mempunyai akses Masuk!</p>
+    <a href="javascript: password();">Masuk = </a>
+  </body>
+</html>

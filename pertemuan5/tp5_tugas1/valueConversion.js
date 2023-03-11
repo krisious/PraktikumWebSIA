@@ -14,6 +14,9 @@ function convertion() {
       document.getElementById("indeks").innerHTML = "D";
     } else if (nilai.value >= 0 && nilai.value <= 39) {
       document.getElementById("indeks").innerHTML = "E";
+    } else {
+      alert("Inputan harus berupa angka 0-100!!");
+      return false;
     }
   } else {
     alert("Inputan harus berupa angka!!");

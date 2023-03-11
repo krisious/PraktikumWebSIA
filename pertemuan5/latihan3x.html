@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script>
+      //   function NIMcheck() {
+      //     if (typeof nim != number) {
+      //       alert("NIM harus berupa angka");
+      //     }
+      //   }
+
+      //   function NamaCheck() {
+      //     if (typeof nama != string) {
+      //       alert("Nama harus berupa huruf");
+      //     }
+      //   }
+
+      //   function Submit() {
+      //     NIMcheck();
+      //     NamaCheck();
+      //     document.write(
+      //       "NIM anda adalah " + nim.value + " dan nama anda adalah " + nama.value
+      //     );
+      //   }
+
+        function Submit() {
+          var nim = document.getElementById("nim").value;
+          var nama = document.getElementById("nama").value;
+
+          var validate_number = /^[0-9]+$/;
+          var validate_string = /^[a-zA-Z]+$/;
+          /^[a-zA-Z]+$/.test(nama.value);
+
+          if(nim.value.match(validate_number)){
+              if(nama.value.match(validate_string)){
+                  document.getElementById("output").innerHTML = "NIM anda adalah " + nim + " dan nama anda adalah " + nama;
+          }
+        }
+    </script>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+    </style>
+    <title>Bioadata</title>
+  </head>
+  <body onload>
+    <p>Isi Bioadata</p>
+    <label for=""
+      >NIM:
+      <input type="text" name="nim" id="nim" />
+    </label>
+    <label for=""
+      >Nama:
+      <input type="text" name="nama" id="nama" />
+    </label>
+    <label for="submit">
+      <!-- <a href="javacript: submit()"> -->
+      <button type="button" onclick="Submit()">Submit</button>
+      <!-- </a> -->
+    </label>
+    <p id="output"></p>
+  </body>
+</html>

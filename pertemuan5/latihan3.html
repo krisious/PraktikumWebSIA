@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function submit() {
+				
+				var nim = document.getElementById("nim");
+				var nama = document.getElementById("nama");
+				
+				var validasiAngka = /^[0-9]+$/;
+				var validasiHuruf = /^[a-zA-Z ]+$/;
+				
+				if(nim.value.match(validasiAngka)){
+					if(nama.value.match(validasiHuruf)){
+						alert("Pengisian Berhasil!");
+						document.getElementById("hasil").innerHTML = "Nim anda: <b>" + nim.value +"</b>, dan Nama anda: <b>" + nama.value +"</b>";
+					}else{
+					  alert("Masukkan Nama Anda Salah!\nFormat wajib huruf!");
+					  nama.value="";
+					  nama.focus();
+					  return false;
+					}
+				}else{
+				  alert("Masukkan nim Anda Salah!\nFormat wajib angka!");
+				  nim.value="";
+				  nim.focus();
+				  return false;
+				}
+				
+			}
+		</script>
+	</head>
+<body>
+ 
+ Isi Biodata<br/>
+ 
+ 
+ Nim
+<input type="text" id="nim" />
+<br/>
+<br/>
+<br/>
+Nama
+ <input type="text" id="nama" />
+ <br/>
+ <br/>
+ <br/>
+
+<button type="button" onclick="submit()">Submit</button>
+ 
+<p id="hasil"></p>
+ 
+ 
+</body>
+</html>

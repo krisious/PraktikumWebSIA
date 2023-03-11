@@ -1,0 +1,62 @@
+<!--- 
+Silahkan dilengkapi kodingan ini agar kalkulator ini bisa berfungsi
+nb : tidak menerima plagiarism
+---->
+
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Kalkulator</title> 
+		
+		<!--- css beda dokumen -->
+		<link rel="stylesheet" href="style.css"> 
+	</head> 
+	
+	<body> 
+		<div class="container"> 
+			<div class="item black" id="result">0</div> 
+			<!-- Fungsi display() menampilkan teks disini ditampilkan disini--> 
+			<div class="item grey" id="clear" onclick="clr()">C</div>
+
+
+			<div class="item grey" id="del" onclick="clr()">←</div> 
+			<div class="item orange" id="div" onclick="">÷</div> 
+			<div class="item grey" id="seven" onclick="">7</div> 
+			<!-- atribut onclick akan memanggil fungsi Javascript ketika elemen diklik--> 
+			<div class="item grey" id="eight" onclick="">8</div> 
+			<div class="item grey" id="nine" onclick="">9</div> 
+			<div class="item orange" id="times" onclick="">×</div> 
+			<div class="item grey" id="four" onclick="">4</div> 
+			<div class="item grey" id="five" onclick="">5</div> 
+			<div class="item grey" id="six" onclick="">6</div> 
+			<div class="item orange" id="min" onclick="">–</div> 
+			<div class="item grey" id="one" onclick="">1</div> 
+			<div class="item grey" id="two" onclick="">2</div> 
+			<div class="item grey" id="three" onclick="">3</div> 
+			<div class="item orange" id="plus" onclick="">+</div> 
+			<div class="item grey" id="zero" onclick="">0</div> 
+			<div class="item orange" id="equal" onclick="count()">=</div> 
+		</div> 
+	</body> 
+</html> 
+
+<script> 
+// Fungsi untuk mendapatkan text di elemen result saat ini, textnya akan di return // Contoh penggunaan: let a = getCurrentResult(); 
+const getCurrentResult = () => { 
+	return document.getElementById('result').textContent; // Variabel berisi 
+} 
+
+//Fungsi untuk mengganti tulisan di area result 
+const display = (text) => { 
+	const result = document.getElementById('result'); //Elemen ber-Id "result" 
+	result.textContent = text; 
+}; 
+
+//Fungsi untuk mereset result
+function clr(){ 
+	display(0); 
+}; 
+</script>

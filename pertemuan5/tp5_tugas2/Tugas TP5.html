@@ -3,60 +3,128 @@ Silahkan dilengkapi kodingan ini agar kalkulator ini bisa berfungsi
 nb : tidak menerima plagiarism
 ---->
 
-<!DOCTYPE html> 
-<html lang="en"> 
-	<head> 
-		<meta charset="UTF-8"> 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Kalkulator</title> 
-		
-		<!--- css beda dokumen -->
-		<link rel="stylesheet" href="style.css"> 
-	</head> 
-	
-	<body> 
-		<div class="container"> 
-			<div class="item black" id="result">0</div> 
-			<!-- Fungsi display() menampilkan teks disini ditampilkan disini--> 
-			<div class="item grey" id="clear" onclick="clr()">C</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
 
+    <!--- css beda dokumen -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-			<div class="item grey" id="del" onclick="clr()">←</div> 
-			<div class="item orange" id="div" onclick="">÷</div> 
-			<div class="item grey" id="seven" onclick="">7</div> 
-			<!-- atribut onclick akan memanggil fungsi Javascript ketika elemen diklik--> 
-			<div class="item grey" id="eight" onclick="">8</div> 
-			<div class="item grey" id="nine" onclick="">9</div> 
-			<div class="item orange" id="times" onclick="">×</div> 
-			<div class="item grey" id="four" onclick="">4</div> 
-			<div class="item grey" id="five" onclick="">5</div> 
-			<div class="item grey" id="six" onclick="">6</div> 
-			<div class="item orange" id="min" onclick="">–</div> 
-			<div class="item grey" id="one" onclick="">1</div> 
-			<div class="item grey" id="two" onclick="">2</div> 
-			<div class="item grey" id="three" onclick="">3</div> 
-			<div class="item orange" id="plus" onclick="">+</div> 
-			<div class="item grey" id="zero" onclick="">0</div> 
-			<div class="item orange" id="equal" onclick="count()">=</div> 
-		</div> 
-	</body> 
-</html> 
+  <body>
+    <div class="container">
+      <div class="item black" id="result">0</div>
+      <!-- Fungsi display() menampilkan teks disini ditampilkan disini-->
+      <div class="item grey" id="clear" onclick="clr()">C</div>
 
-<script> 
-// Fungsi untuk mendapatkan text di elemen result saat ini, textnya akan di return // Contoh penggunaan: let a = getCurrentResult(); 
-const getCurrentResult = () => { 
-	return document.getElementById('result').textContent; // Variabel berisi 
-} 
+      <div class="item grey" id="del" onclick="del()">←</div>
+      <div class="item orange" id="div" onclick="addOperator('/')">÷</div>
+      <div class="item grey" id="seven" onclick="addNumber('7')">7</div>
+      <!-- atribut onclick akan memanggil fungsi Javascript ketika elemen diklik-->
+      <div class="item grey" id="eight" onclick="addNumber('8')">8</div>
+      <div class="item grey" id="nine" onclick="addNumber('9')">9</div>
+      <div class="item orange" id="times" onclick="addOperator('*')">×</div>
+      <div class="item grey" id="four" onclick="addNumber('4')">4</div>
+      <div class="item grey" id="five" onclick="addNumber('5')">5</div>
+      <div class="item grey" id="six" onclick="addNumber('6')">6</div>
+      <div class="item orange" id="min" onclick="addOperator('-')">–</div>
+      <div class="item grey" id="one" onclick="addNumber('1')">1</div>
+      <div class="item grey" id="two" onclick="addNumber('2')">2</div>
+      <div class="item grey" id="three" onclick="addNumber('3')">3</div>
+      <div class="item orange" id="plus" onclick="addOperator('+')">+</div>
+      <div class="item grey" id="zero" onclick="addNumber('0')">0</div>
+      <div class="item orange" id="equal" onclick="count()">=</div>
+    </div>
+  </body>
+</html>
 
-//Fungsi untuk mengganti tulisan di area result 
-const display = (text) => { 
-	const result = document.getElementById('result'); //Elemen ber-Id "result" 
-	result.textContent = text; 
-}; 
+<script>
+  let firstnumber = null;
+  let operator = null;
+  let waitingForSecondNumber = false;
 
-//Fungsi untuk mereset result
-function clr(){ 
-	display(0); 
-}; 
+  // Fungsi untuk mendapatkan text di elemen result saat ini, textnya akan di return // Contoh penggunaan: let a = getCurrentResult();
+  const getCurrentResult = () => {
+    return document.getElementById("result").textContent; // Variabel berisi
+  };
+
+  //Fungsi untuk mengganti tulisan di area result
+  const display = (text) => {
+    const result = document.getElementById("result"); //Elemen ber-Id "result"
+    result.textContent = text;
+  };
+
+  //Fungsi untuk menambahkan angka ke result
+  function addNumber(number) {
+    const currentResult = getCurrentResult();
+    if (currentResult === "0" || waitingForSecondNumber) {
+      display(number);
+      waitingForSecondNumber = false;
+    } else {
+      display(currentResult + number);
+    }
+  }
+
+  //Fungsi untuk menambahkan operator ke result
+  function addOperator(op) {
+    const currentResult = getCurrentResult();
+    if (firstnumber === null) {
+      firstnumber = parseFloat(currentResult);
+      operator = op;
+      display(op);
+      waitingForSecondNumber = true;
+    } else {
+      const secondNumber = parseFloat(currentResult);
+      const result = calculateResult(firstnumber, secondNumber, operator);
+      firstnumber = result;
+      operator = op;
+      display(op);
+      waitingForSecondNumber = true;
+    }
+  }
+
+  //Fungsi untuk melakukan perhitungan
+  function calculateResult(num1, num2, op) {
+    switch (op) {
+      case "+":
+        return num1 + num2;
+      case "-":
+        return num1 - num2;
+      case "*":
+        return num1 * num2;
+      case "/":
+        return num1 / num2;
+    }
+  }
+
+  //Fungsi untuk menampilkan hasil perhitungan
+  function count() {
+    const currentResult = getCurrentResult();
+    const secondNumber = parseFloat(currentResult);
+    const result = calculateResult(firstnumber, secondNumber, operator);
+    display(result);
+    firstnumber = result;
+    operator = null;
+    waitingForSecondNumber = true;
+  }
+
+  //Fungsi untuk mereset result
+  function clr() {
+    firstnumber = null;
+    secondNumber = null;
+    operator = null;
+    display(0);
+  }
+
+  // Fungsi untuk menghapus karakter terakhir pada area result
+  function del() {
+    const currentResult = getCurrentResult();
+    if (currentResult !== "0") {
+      display(currentResult.slice(0, -1));
+    }
+  }
 </script>

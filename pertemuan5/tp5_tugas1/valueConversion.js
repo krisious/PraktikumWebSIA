@@ -1,4 +1,4 @@
-function convertion() {
+function conversion() {
   var nilai = document.getElementById("nilai");
 
   var validate_angka = /^[0-9]+$/;

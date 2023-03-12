@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <style type="text/css">
+      input,
+      textarea {
+        margin: 10px 0 0 0;
+        width: 100%;
+        min-height: 1em;
+      }
+      .kotak1 {
+        width: 400px;
+        height: 100px;
+        padding: 15px 0px 0px 0px;
+        display: flex;
+        background: #97deff;
+        justify-content: center;
+        align-items: ;
+      }
+      .isi .kotak2 {
+        border: groove 1px;
+        border-color: black;
+      }
+      .isi .kotak3 {
+        width: 175px;
+        min-height: 1em;
+        border: groove 1px;
+        border-color: black;
+        background-color: #ffff;
+      }
+      .isi .button {
+        border: solid 2px #2f58cd;
+        margin-top: 15px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function hasil() {
+        var nilai = document.getElementById("nilai");
+
+        var validasiAngka = /^[0-9]+$/;
+
+        if (nilai.value.match(validasiAngka)) {
+          if (nilai.value >= 90 && nilai.value <= 100) {
+            document.getElementById("predikat").innerHTML = "A";
+          } else if (nilai.value >= 80) {
+            document.getElementById("predikat").innerHTML = "B";
+          } else if (nilai.value >= 70) {
+            document.getElementById("predikat").innerHTML = "B+";
+          } else if (nilai.value >= 60) {
+            document.getElementById("predikat").innerHTML = "C";
+          } else if (nilai.value >= 50) {
+            document.getElementById("predikat").innerHTML = "C+";
+          } else if (nilai.value >= 40) {
+            document.getElementById("predikat").innerHTML = "D";
+          } else if (nilai.value >= 30) {
+            document.getElementById("predikat").innerHTML = "E";
+          } else {
+            document.getElementById("predikat").innerHTML = "F";
+          }
+        } else {
+          alert("Nilai yang Anda masukkan salah! format wajib angka");
+          nilai.value = "";
+          nilai.focus();
+          return false;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="kotak1">
+      <div class="isi">
+        <table>
+          <tr>
+            <td>Nilai Anda</td>
+            <td>:</td>
+            <td><input class="kotak2" type="text" id="nilai" /></td>
+          </tr>
+
+          <tr>
+            <td>Anda Mendapatkan Predikat</td>
+            <td>:</td>
+            <td><div class="kotak3" id="predikat"></div></td>
+          </tr>
+        </table>
+
+        <center>
+          <button class="button" type="button" onclick="hasil()">
+            Hasilnya
+          </button>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

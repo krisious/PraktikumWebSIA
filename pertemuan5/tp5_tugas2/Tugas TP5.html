@@ -16,6 +16,7 @@ nb : tidak menerima plagiarism
   </head>
 
   <body>
+    <h1>Kalkulator Sederhana</h1>
     <div class="container">
       <div class="item black" id="result">0</div>
       <!-- Fungsi display() menampilkan teks disini ditampilkan disini-->
@@ -46,6 +47,7 @@ nb : tidak menerima plagiarism
   let firstnumber = null;
   let operator = null;
   let waitingForSecondNumber = false;
+  let secondNumber = null;
 
   // Fungsi untuk mendapatkan text di elemen result saat ini, textnya akan di return // Contoh penggunaan: let a = getCurrentResult();
   const getCurrentResult = () => {
@@ -64,8 +66,14 @@ nb : tidak menerima plagiarism
     if (currentResult === "0" || waitingForSecondNumber) {
       display(number);
       waitingForSecondNumber = false;
+    } else if (currentResult === operator) {
+      display(number);
     } else {
-      display(currentResult + number);
+      display(
+        currentResult.slice(-1) === "0"
+          ? currentResult.slice(0, -1) + number
+          : currentResult + number
+      );
     }
   }
 
@@ -107,9 +115,10 @@ nb : tidak menerima plagiarism
     const secondNumber = parseFloat(currentResult);
     const result = calculateResult(firstnumber, secondNumber, operator);
     display(result);
-    firstnumber = result;
+    firstnumber = null;
     operator = null;
     waitingForSecondNumber = true;
+    secondNumber = null;
   }
 
   //Fungsi untuk mereset result
@@ -117,6 +126,7 @@ nb : tidak menerima plagiarism
     firstnumber = null;
     secondNumber = null;
     operator = null;
+    waitingForSecondNumber = false;
     display(0);
   }
 

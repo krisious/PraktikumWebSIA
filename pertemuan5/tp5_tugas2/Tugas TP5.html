@@ -44,10 +44,11 @@ nb : tidak menerima plagiarism
 </html>
 
 <script>
-  let firstnumber = null;
+  let firstNumber = null;
   let secondNumber = null;
   let operator = null;
   let waitingForSecondNumber = false;
+  let op = /[-+*/]/;
 
   // Fungsi untuk mendapatkan text di elemen result saat ini, textnya akan di return // Contoh penggunaan: let a = getCurrentResult();
   const getCurrentResult = () => {
@@ -66,46 +67,42 @@ nb : tidak menerima plagiarism
     if (currentResult === "0" || waitingForSecondNumber) {
       display(number);
       waitingForSecondNumber = false;
-    } else if (currentResult === operator) {
-      display(number);
+    } else if (currentResult !== "0") {
+      display(currentResult += number);
     } else {
-      display(
-        currentResult.slice(-1) === "0"
-          ? currentResult.slice(0, -1) + number
-          : currentResult + number
-      );
+      display(currentResult += number);
     }
   }
 
   //Fungsi untuk menambahkan operator ke result
   function addOperator(op) {
     const currentResult = getCurrentResult();
-    if (firstnumber === null) {
-      firstnumber = parseFloat(currentResult);
+    if (firstNumber === null) {
+      firstNumber = parseFloat(currentResult);
       operator = op;
-      display(op);
+      display(firstNumber + op);
       waitingForSecondNumber = true;
     } else {
       const secondNumber = parseFloat(currentResult);
-      const result = calculateResult(firstnumber, secondNumber, operator);
-      firstnumber = result;
+      const result = calculateResult(firstNumber, secondNumber, operator);
+      firstNumber = result;
       operator = op;
-      display(op);
+      display(firstNumber + op);
       waitingForSecondNumber = true;
     }
   }
 
   //Fungsi untuk melakukan perhitungan
-  function calculateResult(number1, number2, op) {
+  function calculateResult(firstNumber, secondNumber, op) {
     switch (op) {
       case "+":
-        return number1 + number2;
+        return firstNumber + secondNumber;
       case "-":
-        return number1 - number2;
+        return firstNumber - secondNumber;
       case "*":
-        return number1 * number2;
+        return firstNumber * secondNumber;
       case "/":
-        return number1 / number2;
+        return firstNumber / secondNumber;
     }
   }
 
@@ -113,9 +110,9 @@ nb : tidak menerima plagiarism
   function count() {
     const currentResult = getCurrentResult();
     const secondNumber = parseFloat(currentResult);
-    const result = calculateResult(firstnumber, secondNumber, operator);
+    const result = calculateResult(firstNumber, secondNumber, operator);
     display(result);
-    firstnumber = null;
+    firstNumber = null;
     operator = null;
     waitingForSecondNumber = true;
     secondNumber = null;
@@ -123,7 +120,7 @@ nb : tidak menerima plagiarism
 
   //Fungsi untuk mereset result
   function clr() {
-    firstnumber = null;
+    firstNumber = null;
     secondNumber = null;
     operator = null;
     waitingForSecondNumber = false;
@@ -138,3 +135,7 @@ nb : tidak menerima plagiarism
     }
   }
 </script>
+
+<!-- Tugas Praktikum 5 : Praktikum Pemrograman Web
+NIM : 2110512018
+Nama : Dwi Krisdiyanto  -->

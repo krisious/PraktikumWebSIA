@@ -2,7 +2,6 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  background-color: #7fffd4;
   color: #1b1b32;
   font-family: Tahoma;
   font-size: 16px;
@@ -14,12 +13,20 @@ p {
   text-align: center;
 }
 
+.container {
+  margin: 0 auto;
+  background-color: #7fffd4;
+  width: 50vw;
+  border-radius: 2rem;
+}
+
 #predikat {
-  text-align: left;
+  text-align: center;
+  font-weight: bold;
   padding-left: 2px;
   margin: 10px 0 0 0;
   vertical-align: middle;
-  width: 35rem;
+  width: 35vw;
   min-height: 2em;
   background-color: #f5f6f7;
   border: 1px solid #0a0a23;
@@ -48,12 +55,14 @@ label {
 input,
 textarea {
   margin: 10px 0 0 0;
-  width: 35rem;
+  width: 35vw;
   min-height: 2em;
 }
 
 input,
 textarea {
+  text-align: center;
+  font-weight: bold;
   background-color: #f5f6f7;
   border: 1px solid #0a0a23;
   color: #0a0a23;

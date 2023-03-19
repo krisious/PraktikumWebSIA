@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Isi Data Mahasiswa</title>
+  </head>
+  <body>
+    <h1>Isi Data Mahasiswa</h1>
+    <form action="#" method="POST">
+      <fieldset>
+        <label for="nim"
+          >NIM <font color="red">*</font> :
+          <input type="text" name="nim" id="nim" required
+        /></label>
+        <label for="nama"
+          >Nama<font color="red">*</font> :
+          <input type="text" name="nama" id="name" required
+        /></label>
+      </fieldset>
+      <fieldset>
+        Jenis Kelamin<font color="red">*</font> : <br />
+        <label for="pria"
+          ><input
+            type="radio"
+            name="gender"
+            class="inline"
+            id="pria"
+            value="Pria"
+          />
+          Pria</label
+        >
+        <label for="perempuan"
+          ><input
+            type="radio"
+            name="gender"
+            class="inline"
+            id="perempuan"
+            value="Perempuan"
+          />
+          Perempuan</label
+        >
+      </fieldset>
+      <fieldset>
+        <label for="entry_year"
+          >Tahun Masuk<font color="red">*</font> :
+          <input type="number" name="tahun_masuk" id="entry_year" required
+        /></label>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" onclick="mahasiswa.checkInput()">Submit</button>
+        <button type="reset">Clear</button>
+      </div>
+    </form>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
+  </body>
+</html>

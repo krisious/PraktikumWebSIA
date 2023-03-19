@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Latihan5</title>
+    <script>
+      class mobil {
+        constructor(nama, tahun) {
+          this.nama = nama;
+          this.tahun = tahun;
+        }
+        getcarinfo(tahun) {
+          let umur = tahun - this.tahun;
+          let info = this.nama + " Maka Umur nya " + umur;
+          return info;
+        }
+      }
+      let mobilSaya = new mobil("Honda", 2014);
+      let tanggal = new Date();
+      let tahun = tanggal.getFullYear();
+      document.write(mobilSaya.getcarinfo(tahun));
+    </script>
+  </head>
+
+  <body></body>
+</html>

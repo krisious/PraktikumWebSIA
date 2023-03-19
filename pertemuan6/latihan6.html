@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Latihan6</title>
+    <script>
+      class car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+        getcarinfo(year) {
+          let age = year - this.year;
+          let info = this.name + " dan Umur nya " + age;
+          return info;
+        }
+      }
+      class machine extends car {
+        constructor(name, year, mkuachine) {
+          super(name, year);
+          this.machine = machine;
+        }
+        getmachineinfo(x) {
+          return (
+            this.getcarinfo(x) + " Memiliki jenis mesin dengan " + this.machine
+          );
+        }
+      }
+
+      let mycar = new car("Honda", 2014);
+      let date = new Date();
+      let year = date.getFullYear();
+      let mymachine = new machine("Honda", 2014, "Bensin");
+      document.write(mymachine.getmachineinfo(year));
+    </script>
+  </head>
+</html>

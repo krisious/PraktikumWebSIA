@@ -21,19 +21,21 @@
       //     );
       //   }
 
-        function Submit() {
-          var nim = document.getElementById("nim").value;
-          var nama = document.getElementById("nama").value;
+      function Submit() {
+        var nim = document.getElementById("nim").value;
+        var nama = document.getElementById("nama").value;
 
-          var validate_number = /^[0-9]+$/;
-          var validate_string = /^[a-zA-Z]+$/;
-          /^[a-zA-Z]+$/.test(nama.value);
+        var validate_number = /^[0-9]+$/;
+        var validate_string = /^[a-zA-Z]+$/;
+        /^[a-zA-Z]+$/.test(nama.value);
 
-          if(nim.value.match(validate_number)){
-              if(nama.value.match(validate_string)){
-                  document.getElementById("output").innerHTML = "NIM anda adalah " + nim + " dan nama anda adalah " + nama;
+        if (nim.value.match(validate_number)) {
+          if (nama.value.match(validate_string)) {
+            document.getElementById("output").innerHTML =
+              "NIM anda adalah " + nim + " dan nama anda adalah " + nama;
           }
         }
+      }
     </script>
     <style>
       label {

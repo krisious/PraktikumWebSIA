@@ -23,12 +23,13 @@
             <input type="text" name="nama" id="name" required
           /></label>
         </fieldset>
+
         <fieldset>
           Jenis Kelamin<font color="red">*</font> : <br />
           <label for="pria"
             ><input
               type="radio"
-              name="account-type"
+              name="gender"
               class="inline"
               id="pria"
               value="Pria"
@@ -38,7 +39,7 @@
           <label for="perempuan"
             ><input
               type="radio"
-              name="account-type"
+              name="gender"
               class="inline"
               id="perempuan"
               value="Perempuan"
@@ -46,14 +47,18 @@
             Perempuan</label
           >
         </fieldset>
+
         <fieldset>
           <label for="entry_year"
             >Tahun Masuk<font color="red">*</font> :
-            <input type="number" name="tahun_masuk" id="entry_year" required
+            <input type="month" name="tahun_masuk" id="entry_year" required
           /></label>
         </fieldset>
+
         <div class="buttons">
-          <button type="button" class="submit" onclick="mahasiswa.checkInput()">Submit</button>
+          <button type="button" class="submit" onclick="mahasiswa.checkInput()">
+            Submit
+          </button>
           <button type="reset" class="reset">Clear</button>
         </div>
       </form>

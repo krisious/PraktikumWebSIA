@@ -17,7 +17,7 @@ class Mahasiswa {
     this.entry_year = document.getElementById("entry_year").value;
     this.semester = this.calculateSemester();
 
-    console.log(this);
+    console.log(this, "this disini");
 
     if (this.nim.match(validate_string) || this.nim == "") {
       alert("NIM harus berupa angka dan wajib diisi");
@@ -63,14 +63,25 @@ class Mahasiswa {
     this.name = document.getElementById("name").value;
     this.gender = this.checkGender();
     this.entry_year = document.getElementById("entry_year").value;
-
-    window.open("print.html", "_blank", "width=500, height=500, menubar=yes");
-    document.getElementById("print_nim").innerHTML = this.nim;
-    document.getElementById("print_name").innerHTML = this.name;
-    document.getElementById("print_gender").innerHTML = this.gender;
-    document.getElementById("print_entry_year").innerHTML = this.entry_year;
-    document.getElementById("print_semester").innerHTML =
-      this.calculateSemester().toString();
+    this.semester = this.calculateSemester().toString();
+    const self = this;
+    const popupWindow = window.open(
+      "print.html",
+      "Popup",
+      "width=500, height=500, menubar=yes"
+    );
+    popupWindow.addEventListener("load", function () {
+      popupWindow.postMessage(
+        {
+          nim: self.nim,
+          name: self.name,
+          gender: self.gender,
+          entry_year: self.entry_year,
+          semester: self.semester,
+        },
+        "*"
+      );
+    });
   }
 }
 

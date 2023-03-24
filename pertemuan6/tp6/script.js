@@ -100,3 +100,16 @@ class Mahasiswa {
 }
 
 const mahasiswa = new Mahasiswa();
+
+let info =
+  "Nim anda: <b>" +
+  nim +
+  "</b>,<br>Nama anda: <b>" +
+  name +
+  "</b>,<br>Jenis Kelamin anda: <b>" +
+  sex +
+  "</b>,<br><br>Tahun Masuk Anda: " +
+  year +
+  ",<br>dan anda berarti sekarang<br>semester: <b>" +
+  semester +
+  "</b>";

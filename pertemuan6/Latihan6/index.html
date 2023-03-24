@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">offline college preparation survey</h1>
+    <p id="description">
+      fill in this survey with correct and accountable data
+    </p>
+    <form id="survey-form" action="">
+      <fieldset>
+        <label id="name-label" for="">
+          Enter your full name :
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </label>
+        <label id="email-label" for="">
+          Enter your email address :
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </label>
+        <label id="number-label" for="">
+          Enter your age :
+          <input
+            id="number"
+            type="number"
+            name="age"
+            placeholder="Enter your age"
+            max="70"
+            min="18"
+            required
+          />
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="">
+          Choose your major :
+          <select id="dropdown" name="" required>
+            <option value="">Select One</option>
+            <option value="1">Information Systems</option>
+            <option value="2">Technical Information</option>
+            <option value="3">Accountancy</option>
+            <option value="4">Banking</option>
+            <option value="5">Communication Studies</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        Are you vaccined yet?
+        <label for="">
+          <input id="" type="radio" name="vaccine" value="1" class="inline" /> Yes
+        </label>
+        <label for="">
+          <input id="" type="radio" name="vaccine" value="2" class="inline" /> No
+        </label>
+      </fieldset>
+      <fieldset>
+        Modes of transportation
+        <label for=""
+          ><input id="" type="checkbox" name="" class="inline" value="1" /> Motorcycle
+        </label>
+        <label for=""
+          ><input id="" type="checkbox" name="" class="inline" value="1" /> Car
+        </label>
+        <label for=""
+          ><input id="" type="checkbox" name="" class="inline" value="1" /> Train
+        </label>
+        <label for=""
+          ><input id="" type="checkbox" name="" class="inline" value="1" /> Bus
+        </label>
+      </fieldset>
+      <fieldset>
+        Add your home address : 
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </fieldset>
+      <input id="submit" type="submit" />
+    </form>
+  </body>
+</html>

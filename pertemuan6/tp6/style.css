@@ -59,12 +59,19 @@ select {
 input,
 textarea {
   color: #3b3b4f;
+  font-family: Tahoma;
+  font-size: 14px;
 }
 
 .inline {
   width: unset;
   margin: 0 0.5em 0 0;
   vertical-align: middle;
+}
+
+input[type="month"] {
+  font-family: Tahoma;
+  font-size: 14px;
 }
 
 .buttons {

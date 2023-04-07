@@ -18,8 +18,6 @@ class Mahasiswa {
     this.entry_year = document.getElementById("entry_year").value;
     this.semester = this.calculateSemester();
 
-    console.log(this, "this disini");
-
     if (this.nim.match(validate_string) || this.nim == "") {
       alert("NIM harus berupa angka dan wajib diisi");
       document.getElementById("nim").value = "";
@@ -61,15 +59,18 @@ class Mahasiswa {
    */
   calculateSemester() {
     let currentYear = new Date().getFullYear();
-    let currentMonth = new Date().getMonth() + 6;
 
-    this.semester = (currentYear - parseInt(this.entry_year)) * 2;
+    let entryYear = this.entry_year.slice(0, 4);
+    let entryMonth = this.entry_year.slice(5, 7);
 
-    if (currentMonth >= 2 && currentMonth <= 7) {
-      this.semester--;
+    let semester;
+    if (entryMonth >= 1 && entryMonth <= 6) {
+      semester = (currentYear - parseInt(entryYear)) * 2 + 1;
+    } else {
+      semester = (currentYear - parseInt(entryYear)) * 2;
     }
 
-    return this.semester;
+    return semester;
   }
 
   /**
@@ -99,3 +100,16 @@ class Mahasiswa {
 }
 
 const mahasiswa = new Mahasiswa();
+
+let info =
+  "Nim anda: <b>" +
+  nim +
+  "</b>,<br>Nama anda: <b>" +
+  name +
+  "</b>,<br>Jenis Kelamin anda: <b>" +
+  sex +
+  "</b>,<br><br>Tahun Masuk Anda: " +
+  year +
+  ",<br>dan anda berarti sekarang<br>semester: <b>" +
+  semester +
+  "</b>";

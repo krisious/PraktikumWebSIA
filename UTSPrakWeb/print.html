@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil Pengajuan Penelitian Mahasiswa</title>
+  </head>
+  <body>
+    <fieldset>
+      <p align="center">
+        UPN Veteran Jakarta
+        <img
+          src="https://www.upnvj.ac.id/id/files/thumb/d8be74d9d9ca67272c943c8d5dd739b5/520"
+          width="20px"
+          height="20px"
+        />
+      </p>
+
+      <legend>Pengajuan Penelitian Mahasiswa Ilmu Komputer</legend>
+      <p id="hasil"></p>
+
+      Peminatan yang di pilih:
+      <ul id="list_mk"></ul>
+    </fieldset>
+
+    <script>
+      // Get the ID of the element from the URL query string
+      let urlParams = new URLSearchParams(window.location.search);
+      let nim = urlParams.get("nim");
+      let name = urlParams.get("name");
+      let angkatan = urlParams.get("angkatan");
+      let major = urlParams.get("major");
+      let title = urlParams.get("title");
+      let mk = [urlParams.get("mk")];
+      const mkArray = mk.join(",").split(",");
+
+      //console.log(mkArray.length);
+
+      let tampung = [];
+
+      for (var i = 0; i < mkArray.length; i++) {
+        tampung.push(mkArray[i]);
+      }
+
+      //console.log(tampung);
+
+      const list_mk = document.getElementById("list_mk");
+
+      tampung.forEach((item) => {
+        let li = document.createElement("li");
+        li.innerText = item;
+        list_mk.appendChild(li);
+      });
+
+      class semester {
+        constructor(angkatan) {
+          this.angkatan = angkatan;
+        }
+
+        getSemester(thn_skrg) {
+          let semesterDuration = 6;
+          // let semester = ((thn_skrg - angkatan) * 12) / semesterDuration;
+          let semester = thn_skrg - (angkatan + semesterDuration / 12);
+          //console.log(semester);
+          return semester;
+        }
+      }
+
+      let mySemester = new semester();
+      let date = new Date();
+      let year = date.getFullYear();
+
+      let element = document.getElementById("hasil");
+
+      if (element !== null) {
+        element.innerHTML =
+          "Nim : <b>" +
+          nim +
+          "</b> <br/>Nama : <b>" +
+          name +
+          "</b> </br>Program Studi: <b>" +
+          major +
+          "</b> <br/>Tahun Masuk:<b>" +
+          mySemester.getSemester(year) +
+          "</b> <br/>Judul Penelitian:<b>" +
+          title +
+          "</b>";
+      }
+
+      //document.getElementById("hasil").innerHTML = "Nim anda: <b>" + nim +"</b>, Nama anda: <b>" + nama +"</b>, Jenis Kelamin anda: <b>" + jk +"</b>, Tahun Masuk Anda:"+ tahun +", dan anda berarti sekarang semester:"+mySemester.getSemester(year);
+    </script>
+  </body>
+</html>

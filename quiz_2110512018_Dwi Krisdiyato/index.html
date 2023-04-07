@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Form Kontrak Mata Kuliah UPN Veteran Jakarta</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 id="title">
+          FORM ISI KONTRAK MATA KULIAH <br />
+          UPN VETERAN JAKARTA
+          <img
+            src="https://www.upnvj.ac.id/id/files/thumb/89f8a80e388ced3704b091e21f510755/520"
+            alt=""
+            width="35px"
+          />
+        </h1>
+      </header>
+      <form id="survey-form" action="#" method="POST">
+        <fieldset>
+          <label id="nim-label" for="">
+            <input id="nim" type="text" name="nim" placeholder="NIM" required />
+          </label>
+          <label id="name-label" for="">
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Nama"
+              required
+            />
+          </label>
+          <label id="year-label" for="">
+            <input
+              id="year"
+              type="number"
+              name="year"
+              placeholder="Angkatan"
+              required
+            />
+          </label>
+          <label id="major-label" for="">
+            <input
+              id="major"
+              type="text"
+              name="major"
+              placeholder="Program Studi"
+              required
+            />
+          </label>
+        </fieldset>
+        <fieldset>
+          <p>Kontrak Mata Kuliah</p>
+          <div class="labels">
+            <label for=""
+              ><input
+                id="bd"
+                type="checkbox"
+                name="contract-label"
+                class="inline"
+                value="Basis Data - 3 SKS"
+              />
+              Basis Data - 3 SKS
+            </label>
+            <label for=""
+              ><input
+                id="pweb"
+                type="checkbox"
+                name="contract-label"
+                class="inline"
+                value="Pemrograman Web - 3 SKS"
+              />
+              Pemrograman Web - 3 SKS
+            </label>
+            <label for=""
+              ><input
+                id="dm"
+                type="checkbox"
+                name="contract-label"
+                class="inline"
+                value="Data Mining - 3 SKS"
+              />
+              Data Mining - 3 SKS
+            </label>
+          </div>
+        </fieldset>
+        <div class="cta">
+          <button type="button" class="submit" onclick="mahasiswa.checkInput()">
+            Kontrak
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
+  </body>
+</html>

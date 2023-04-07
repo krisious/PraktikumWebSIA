@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Menghitung Indeks Prestasi</title>
+  </head>
+  <body>
+    <marquee behavior="" direction=""
+      >UTS PEMROGRAMAN WEB - 2110512018 - Dwi Krisdiyanto</marquee
+    >
+    <table border="2px">
+      <tr>
+        <td colspan="4">
+          <h1>Menhitung Indeks Prestasi</h1>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="quiz">
+            Quiz (10%) :
+            <input type="number" id="quiz" />
+          </label>
+        </td>
+        <td>
+          <label for="tugas">
+            Tugas (20%) :
+            <input type="number" id="tugas" />
+          </label>
+        </td>
+        <td>
+          <label for="uts">
+            UTS (30%) :
+            <input type="number" id="uts" />
+          </label>
+        </td>
+        <td>
+          <label for="uas">
+            UAS (40%) :
+            <input type="number" id="uas" />
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td class="buttons" colspan="4">
+          <button type="button" onclick="calculateIndex()">Hitung</button>
+          <button type="button" onclick="resetForm()">Ulang</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" class="result">
+          <label for="indeks">
+            Indeks Prestasi :
+            <input id="indeks" />
+          </label>
+          <label for="info">
+            Keterangan :
+            <input id="info" />
+          </label>
+        </td>
+      </tr>
+    </table>
+
+    <script src="./calculate..js"></script>
+  </body>
+</html>

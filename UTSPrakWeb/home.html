@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Ujian Tengah Semester</title>
+  </head>
+  <body>
+    <header>
+      <a href="https://new-fik.upnvj.ac.id/" target="_blank"
+        ><b>ini adalah Ujian Tengah Semester Pemrograman Web. </b>Klik ini untuk
+        ke laman Fakultas Ilmu Komputer UPN Veteran Jakarta</a
+      >
+    </header>
+
+    <main id="home">
+      <div class="intro">
+        <img
+          src="https://www.upnvj.ac.id/id/files/thumb/d8be74d9d9ca67272c943c8d5dd739b5/520"
+          alt="logo upnvj"
+          style="width: 1%"
+        />
+        Sistem Pengajuan Penelitian Fakultas Ilmu Komputer Universitas
+        Pembangunan Nasional Veteran Jakarta.
+      </div>
+      <div class="content">
+        <div class="content_text">
+          <h1>
+            Selamat Datang pada Sistem Pengajuan Penelitian Skripsi
+            <font color="yellow"> Fakultas Ilmu Komputer </font>
+            <font color="blue"> UPN Veteran Jakarta </font>
+          </h1>
+          <p>
+            Sistem ini untuk sebagai tolak ukur pemahaman diri saya terhadap
+            materi pemrograman web sistem informasi.
+          </p>
+          <div class="cta">
+            <a href="./registration.html"
+              ><button type="button" class="start">Mulai ></button></a
+            >
+            <button type="button" class="aboutme" onclick="aboutme()">
+              Daftar Diri
+            </button>
+          </div>
+        </div>
+        <div class="content_img">
+          <img
+            src="https://media.discordapp.net/attachments/957627184179200001/1090442578563964968/bgupn.jpeg"
+            alt="foto_fik"
+            width="400px"
+          />
+        </div>
+      </div>
+    </main>
+    <script>
+      function aboutme() {
+        window.open("aboutme.html", "myPopupWindow", "width=500,height=500");
+      }
+    </script>
+  </body>
+</html>

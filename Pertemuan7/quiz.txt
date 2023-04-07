@@ -1,0 +1,7 @@
+Inputan (HTML, CSS)
+- NIM (angka)
+- Nama (huruf)
+- Angkatan (angka)
+- Program Studi (string)
+
+Alert kalo kosong dan tipe data tidak sesuai

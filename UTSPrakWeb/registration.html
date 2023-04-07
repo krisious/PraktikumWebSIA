@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href=""
+    <title>Sistem Pengajuan Proposal</title>
+  </head>
+  <body>
+    <div class="login">
+      <h2 class="login-header">
+        Form Pengajuan Penelitian Mahasiswa Ilmu Komputer UPN Veteran Jakarta
+        <img
+          src="https://www.upnvj.ac.id/id/files/thumb/d8be74d9d9ca67272c943c8d5dd739b5/520"
+          width="20px"
+          height="20px"
+        />
+      </h2>
+
+      <div class="login-container">
+        <p>
+          <input type="text" id="nim" placeholder="NIM Mahasiswa" />
+        </p>
+        <p>
+          <input text="text" id="name" placeholder="Nama Mahasiswa" />
+        </p>
+        <p>
+          <input text="text" id="semester" placeholder="Semester Mahasiswa" />
+        </p>
+        <p>
+          <select name="prodi" id="major" onchange="showPeminatan(this)">
+            <option value="">Pilih Program Studi</option>
+            <option value="D3 Sistem Informasi">D3 Sistem Informasi</option>
+            <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
+            <option value="S1 Informatika">S1 Informatika</option>
+          </select>
+        </p>
+
+        <fieldset id="tampil_mk_d3" style="display: none">
+          <legend>Peminatan Penelitian Mahasiswa D3 Sistem Informasi</legend>
+          <table>
+            <tr>
+              <td><label for="kj">Komputer dan Jaringan</label></td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="mk"
+                  name="mk"
+                  value="Komputer dan Jaringan"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="md">Mobile Developer</label></td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="mk"
+                  name="mk"
+                  value="Pemrograman Mobile"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <fieldset id="tampil_mk_si" style="display: none">
+          <legend>Peminatan Penelitian Mahasiswa S1 Sistem Informasi</legend>
+          <table>
+            <tr>
+              <td><label for="ep">Enterprise</label></td>
+              <td>
+                <input type="checkbox" id="mk" name="mk" value="Enterprise" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="da">Data Analyst</label></td>
+              <td>
+                <input type="checkbox" id="mk" name="mk" value="Data Analyst" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="au">Audit Sistem Informasi</label></td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="mk"
+                  name="mk"
+                  value="Audit Sistem Informasi"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="pm">Project Manager</label></td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="mk"
+                  name="mk"
+                  value="Project Manager"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <fieldset id="tampil_mk_if" style="display: none">
+          <legend>Peminatan Penelitian Mahasiswa S1 Informatika</legend>
+          <table>
+            <tr>
+              <td><label for="se">Software Enginer</label></td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="mk"
+                  name="mk"
+                  value="Software Enginer"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="ds">Data Science</label></td>
+              <td>
+                <input type="checkbox" id="mk" name="mk" value="Data Science" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="ds">Cyber Security</label></td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="mk"
+                  name="mk"
+                  value="Cyber Security"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <textarea
+          name="judul_penelitian"
+          id="title"
+          rows="5"
+          placeholder="Judul Penelitian Mahasiswa"
+        ></textarea>
+
+        <p>
+          <input type="button" value="Submit" onclick="submit();" />
+        </p>
+        <p>
+          <a href="./home.html">
+            <input type="button" value="Kembali ke Home" />
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function showPeminatan(select) {
+        if (select.value == "D3 Sistem Informasi") {
+          document.getElementById("tampil_mk_d3").style.display = "block";
+          document.getElementById("tampil_mk_si").style.display = "none";
+          document.getElementById("tampil_mk_if").style.display = "none";
+        } else if (select.value == "S1 Sistem Informasi") {
+          document.getElementById("tampil_mk_d3").style.display = "none";
+          document.getElementById("tampil_mk_si").style.display = "block";
+          document.getElementById("tampil_mk_if").style.display = "none";
+        } else if (select.value == "S1 Informatika") {
+          document.getElementById("tampil_mk_d3").style.display = "none";
+          document.getElementById("tampil_mk_si").style.display = "none";
+          document.getElementById("tampil_mk_if").style.display = "block";
+        } else {
+          document.getElementById("tampil_mk_d3").style.display = "none";
+          document.getElementById("tampil_mk_si").style.display = "none";
+          document.getElementById("tampil_mk_if").style.display = "none";
+        }
+      }
+
+      function submit() {
+        var nim = document.getElementById("nim");
+        var name = document.getElementById("name");
+        var semester = document.getElementById("semester");
+        var major = document.getElementById("major");
+        var mk = [];
+        var checkboxes = document.querySelectorAll(
+          "input[type=checkbox]:checked"
+        );
+        var title = document.getElementById("title");
+
+        console.log(name.value, nim.value, semester.value, major.value, mk);
+
+        for (var i = 0; i < checkboxes.length; i++) {
+          mk.push(checkboxes[i].value);
+        }
+
+        var validate_number = /^[0-9]+$/;
+        var validate_string = /^[a-zA-Z ]+$/;
+
+        if (
+          nim.value != "" &&
+          name.value != "" &&
+          semester.value != "" &&
+          major.value != ""
+          // mk != ""
+        ) {
+          if (nim.value.match(validate_number)) {
+            if (name.value.match(validate_string)) {
+              if (semester.value.match(validate_number)) {
+                if (title.value.match(validate_string)) {
+                  if (semester.value >= 6) {
+                    alert("Pengisian Berhasil!");
+
+                    let url =
+                      "print.html?nim=" +
+                      nim.value +
+                      "&name=" +
+                      name.value +
+                      "&semester=" +
+                      semester.value +
+                      "&major=" +
+                      major.value +
+                      "&mk=" +
+                      mk +
+                      "&title=" +
+                      title.value;
+
+                    window.open(url, "_blank", "width=600,height=600");
+                  } else {
+                    alert(
+                      "Mahasiswa belum bisa bisa mengajukan penelitian! \n Harus seemester 6 ke atas"
+                    );
+                  }
+                } else {
+                  alert(
+                    "Masukkan Judul Penelitian Anda Salah!\nFormat wajib huruf!"
+                  );
+                  title.value = "";
+                  title.focus();
+                  return false;
+                }
+              } else {
+                alert(
+                  "Masukkan Tahun Angkatan Anda Salah!\nFormat wajib angka!"
+                );
+                semester.value = "";
+                semester.focus();
+                return false;
+              }
+            } else {
+              alert("Masukkan Nama Anda Salah!\nFormat wajib huruf!");
+              name.value = "";
+              name.focus();
+              return false;
+            }
+          } else {
+            alert("Masukkan nim Anda Salah!\nFormat wajib angka!");
+            nim.value = "";
+            nim.focus();
+            return false;
+          }
+        } else {
+          alert("Masukkan Kosong! Mohon Isi Terlebih dahulu inputan");
+          nim.value = "";
+          name.value = "";
+          semester.value = "";
+          major.value = "";
+          mk.value = "";
+          nim.focus();
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

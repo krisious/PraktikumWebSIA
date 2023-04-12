@@ -41,7 +41,7 @@ $pesan = $_POST['pesan'];
                     echo "<ul>";
 
                     foreach ($hobi as $value) {
-                        echo "<li class='   list'>$value</li>";
+                        echo "<li class='list'>$value</li>";
                     }
                     echo "</ul>";
                 }

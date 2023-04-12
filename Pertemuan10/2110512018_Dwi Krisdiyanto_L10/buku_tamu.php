@@ -66,10 +66,25 @@
             var prodi = document.forms["BukuTamu"]["prodi"].value;
             var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
             var pesan = document.forms["BukuTamu"]["pesan"].value;
-            
-            
-            if (nama == "" || jk == "" || prodi == "" || checkboxes.length == 0 || pesan == "") {
-                alert("Atribut tidak boleh kosong");
+
+
+            var validateString = /^[a-zA-Z]+$/;
+            var validasiNumber = /^[0-9]+$/;
+
+            if (nama == "" || !nama.match(validateString)) {
+                alert("Nama tidak boleh kosong dan hanya boleh huruf");
+                return false;
+            } else if (jk == "") {
+                alert("Jenis Kelamin tidak boleh kosong");
+                return false;
+            } else if (prodi == "") {
+                alert("Program Studi tidak boleh kosong");
+                return false;
+            } else if (checkboxes.length == 0) {
+                alert("Hobi tidak boleh kosong");
+                return false;
+            } else if (pesan == "") {
+                alert("Pesan tidak boleh kosong");
                 return false;
             }
         }

@@ -67,7 +67,6 @@
             var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
             var pesan = document.forms["BukuTamu"]["pesan"].value;
 
-
             var validateString = /^[a-zA-Z]+$/;
             var validasiNumber = /^[0-9]+$/;
 

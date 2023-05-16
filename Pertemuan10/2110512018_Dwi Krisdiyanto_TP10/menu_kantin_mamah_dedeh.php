@@ -39,7 +39,10 @@
             <tr>
                 <td colspan="2"><input class="button" type="submit" value="Bayar Sekarang"></td>
             </tr>
-        </table>
+            <!-- <tr>
+                <td colspan="2"><input class="button reset" type="reset" value="Reset"></td>
+            </tr> -->
+        </table>    
     </form>
     <script>
         function validateOrder() {

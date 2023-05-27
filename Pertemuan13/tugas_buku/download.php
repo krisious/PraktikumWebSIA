@@ -14,6 +14,10 @@ if ($fd = fopen($full_path, "r")) {
             header("Content-type: application/pdf");
             header("Content-Disposition: attachment; filename=\"" . $path_parts["basename"] . "\"");
             break;
+        case "jpg":
+            header("Content-type: image/jpeg");
+            header("Content-Disposition: attachment; filename=\"" . $path_parts["basename"] . "\"");
+            break;
         default:
             header("Content-type: application/octet-stream");
             header("Content-Disposition: filename=\"" . $path_parts["basename"] . "\"");
@@ -24,7 +28,6 @@ if ($fd = fopen($full_path, "r")) {
         $buffer = fread($fd, 2048);
         echo $buffer;
     }
+    fclose($fd);
+    exit;
 }
-fclose($fd);
-exit;
-?>

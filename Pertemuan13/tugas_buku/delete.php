@@ -3,16 +3,14 @@ include("config.php");
 
 // fungsi PHP untuk menghapus file
 $path = "file/";
-$id = $_GET['id'];
-
+$id_buku = $_GET['id_buku'];
 // hapus data dari table
-$query = "DELETE from upload WHERE id=$id";
+$query = "DELETE from buku WHERE id_buku=$id_buku";
 $result = mysqli_query($conn, $query);
-if ($result) {
+if ($query) {
     // hapus data dari direktori
     unlink($path . $_GET['filename']);
-    header("Location: download.php");
+    header("Location: home.php");
 } else {
     die("Gagal Menghapus Data");
 }
-?>

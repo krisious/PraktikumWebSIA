@@ -19,7 +19,7 @@ if ($username != '' && $password != '') {
         $_SESSION['username'] = $data['username'];
         $_SESSION['nama'] = $data['nama'];
         setcookie("message", "", time() - 60);
-        header("location: welcome.php");
+        header("location: home.php");
     }
 } else {
     setcookie("message", "Username atau Password kosong", time() + 60);

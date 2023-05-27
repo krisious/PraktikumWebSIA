@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.img-section {
+  height: 100vh;
+  background-color: aquamarine;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-section h1 {
+  padding-top: 17rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px black;
+}
+
+.login-section {
+  height: 100vh;
+  padding-top: 8rem;
+}
+
+.home-container {
+  padding-top: 2rem;
+}
+
+.welcome-text {
+  text-align: left;
+}
+
+.tabel-buku {
+  padding-top: 2rem;
+  text-align: left;
+}
+
+.form-buku {
+  padding-top: 2rem;
+  text-align: left;;
+}
+
+.form-layout{
+  width: 50%;
+  margin: auto;
+  padding: 2rem
+}
+
+.buttons-home{
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.btn-home{
+  width: 8rem;
+}
